@@ -222,7 +222,7 @@ echo '<div class="panel"<a title="Back to Archive" href="update.php?q1=2"><b><sp
 <!--add quiz start-->
 <?php
 if(@$_GET['q']==4 && !(@$_GET['step']) ) {
-echo ' 
+echo (' 
 <div class="row">
 <span class="title1" style="margin-left:40%;font-size:30px;"><b>Enter Quiz Details</b></span><br /><br />
  <div class="col-md-3"></div><div class="col-md-6">   <form class="form-horizontal title1" name="form" action="update.php?q=addquiz"  method="POST">
@@ -239,8 +239,6 @@ echo '
 </div>
 
 
-
-<!-- Text input-->
 <div class="form-group">
   <label class="col-md-12 control-label" for="total"></label>  
   <div class="col-md-12">
@@ -303,7 +301,7 @@ echo '
 </div>
 
 </fieldset>
-</form></div>';
+</form></div>');
 
 
 
@@ -314,16 +312,16 @@ echo '
 <!--add quiz step2 start-->
 <?php
 if(@$_GET['q']==4 && (@$_GET['step'])==2 ) {
-echo ' 
+echo (' 
 <div class="row">
 <span class="title1" style="margin-left:40%;font-size:30px;"><b>Enter Question Details</b></span><br /><br />
  <div class="col-md-3"></div><div class="col-md-6"><form class="form-horizontal title1" name="form" action="update.php?q=addqns&n='.@$_GET['n'].'&eid='.@$_GET['eid'].'&ch=4 "  method="POST">
 <fieldset>
-';
+');
  
- for($i=1;$i<=@$_GET['n'];$i++)
- {
-echo '<b>Question number&nbsp;'.$i.'&nbsp;:</><br /><!-- Text input-->
+for($i=1;$i<=@$_GET['n'];$i++)
+{
+echo ('<b>Question number&nbsp;'.$i.'&nbsp;:</><br /><!-- Text input-->
 <div class="form-group">
   <label class="col-md-12 control-label" for="qns'.$i.' "></label>  
   <div class="col-md-12">
@@ -369,10 +367,10 @@ echo '<b>Question number&nbsp;'.$i.'&nbsp;:</><br /><!-- Text input-->
   <option value="a">option a</option>
   <option value="b">option b</option>
   <option value="c">option c</option>
-  <option value="d">option d</option> </select><br /><br />'; 
+  <option value="d">option d</option> </select><br /><br />'); 
  }
     
-echo '<div class="form-group">
+echo ('<div class="form-group">
   <label class="col-md-12 control-label" for=""></label>
   <div class="col-md-12"> 
     <input  type="submit" style="margin-left:45%" class="btn btn-primary" value="Submit" class="btn btn-primary"/>
@@ -380,7 +378,7 @@ echo '<div class="form-group">
 </div>
 
 </fieldset>
-</form></div>';
+</form></div>');
 
 
 

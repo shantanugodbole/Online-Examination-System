@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Project Worlds || TEST YOUR SKILL </title>
+<title>Online Examination System</title>
 <link  rel="stylesheet" href="css/bootstrap.min.css"/>
  <link  rel="stylesheet" href="css/bootstrap-theme.min.css"/>    
  <link rel="stylesheet" href="css/main.css">
@@ -29,7 +29,7 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 <div class="header">
 <div class="row">
 <div class="col-lg-6">
-<span class="logo">Test Your Skill</span></div>
+<span class="logo">Welcome to OES!</span></div>
 <div class="col-md-2 col-md-offset-4">
 <a href="#" class="pull-right btn sub1" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Signin</b></span></a></div>
 <!--sign in modal start-->
@@ -38,7 +38,7 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
     <div class="modal-content title1">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title title1"><span style="color:orange">Log In</span></h4>
+        <h4 class="modal-title title1"><span style="color:black">Log In</span></h4>
       </div>
       <div class="modal-body">
         <form class="form-horizontal" action="login.php?q=index.php" method="POST">
@@ -103,7 +103,7 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
   <label class="col-md-12 control-label" for="gender"></label>
   <div class="col-md-12">
     <select id="gender" name="gender" placeholder="Enter your gender" class="form-control input-md" >
-   <option value="Male">Select Gender</option>
+   <option value="Male">Gender</option>
   <option value="M">Male</option>
   <option value="F">Female</option> </select>
   </div>
@@ -150,7 +150,7 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 <div class="form-group">
   <label class="col-md-12control-label" for="cpassword"></label>
   <div class="col-md-12">
-    <input id="cpassword" name="cpassword" placeholder="Conform Password" class="form-control input-md" type="password">
+    <input id="cpassword" name="cpassword" placeholder="Confirm Password" class="form-control input-md" type="password">
     
   </div>
 </div>
@@ -160,7 +160,7 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 <div class="form-group">
   <label class="col-md-12 control-label" for=""></label>
   <div class="col-md-12"> 
-    <input  type="submit" class="sub" value="sign up" class="btn btn-primary"/>
+    <input  type="submit" class="sub" value="Sign up" class="btn btn-primary"/>
   </div>
 </div>
 
@@ -172,18 +172,18 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 
 <!--Footer start-->
 <div class="row footer">
-<div class="col-md-3 box">
+<!-- <div class="col-md-3 box">
 <a href="http://www.projectworlds/online-examination" target="_blank">About us</a>
-</div>
+</div> -->
 <div class="col-md-3 box">
 <a href="#" data-toggle="modal" data-target="#login">Admin Login</a></div>
 <div class="col-md-3 box">
-<a href="#" data-toggle="modal" data-target="#developers">Developers</a>
-</div>
+<!-- <a href="#" data-toggle="modal" data-target="#developers">Developers</a> -->
+<!-- </div>
 <div class="col-md-3 box">
 <a href="feedback.php" target="_blank">Feedback</a></div></div>
 <!-- Modal For Developers-->
-<div class="modal fade title1" id="developers">
+<!-- <div class="modal fade title1" id="developers">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -203,7 +203,7 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 		<h4 style="font-family:'typo' ">vermayugesh323@gmail.com</h4>
 		<h4 style="font-family:'typo' ">Chhattishgarh insitute of management & Technology ,bhilai</h4></div></div>
 		</p>
-      </div>
+      </div> --> 
     
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
