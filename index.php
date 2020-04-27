@@ -113,7 +113,7 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 <div class="form-group">
   <label class="col-md-12 control-label" for="name"></label>  
   <div class="col-md-12">
-  <input id="college" name="college" placeholder="Enter your college name" class="form-control input-md" type="text">
+  <input id="college" name="college" placeholder="Enter your Branch" class="form-control input-md" type="text">
     
   </div>
 </div>
