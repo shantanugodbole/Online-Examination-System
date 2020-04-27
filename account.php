@@ -1,11 +1,10 @@
-<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> -->
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Your Profile</title>
+<title>Online Examination System</title>
 <link  rel="stylesheet" href="css/bootstrap.min.css"/>
  <link  rel="stylesheet" href="css/bootstrap-theme.min.css"/>    
  <link rel="stylesheet" href="css/main.css">
@@ -44,7 +43,7 @@ $name = $_SESSION['name'];
 $email=$_SESSION['email'];
 
 include_once 'dbConnection.php';
-echo '<span class="pull-right top title1" ><span class="log1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;Hello,</span> <a href="account.php?q=1" class="log log1">'.$name.'</a>&nbsp;|&nbsp;<a href="logout.php?q=account.php" class="log"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Signout</button></a></span>';
+echo '<span class="pull-right top title1" ><span class="log1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;Hello,</span> <a href="http://localhost/mip/account.php?q=1" class="log log1">'.$name.'</a>&nbsp;|&nbsp;<a href="logout.php?q=account.php" class="log"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Signout</button></a></span>';
 }?>
 </div>
 </div></div>
@@ -107,14 +106,14 @@ if($rowcount == 0){
 else
 {
 echo '<tr style="color:#99cc32"><td>'.$c++.'</td><td>'.$title.'&nbsp;<span title="This quiz is already solve by you" class="glyphicon glyphicon-ok" aria-hidden="true"></span></td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;min</td>
-	<td><b><a href="update.php?q=quizre&step=25&eid='.$eid.'&n=1&t='.$total.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Restart</b></span></a></b></td></tr>';
+	<td><b><a href="update.php?q=quizre&step=25&eid='.$eid.'&n=1&t='.$total.'"</span>&nbsp;</a></b></td></tr>';
 }
 }
 $c=0;
 echo '</table></div></div>';
 
 }?>
-<!-- <span id="countdown" class="timer"></span>
+<!--<span id="countdown" class="timer"></span>
 <script>
 var seconds = 40;
     function secondPassed() {
@@ -132,11 +131,11 @@ var seconds = 40;
     }
     }
 var countdownTimer = setInterval('secondPassed()', 1000);
-</script>--> -->
+</script>-->
 
 <!--home closed-->
 
-<!--quiz start
+<!--quiz start-->
 <?php
 if(@$_GET['q']== 'quiz' && @$_GET['step']== 2) {
 $eid=@$_GET['eid'];
@@ -160,7 +159,7 @@ $option=$row['option'];
 $optionid=$row['optionid'];
 echo'<input type="radio" name="ans" value="'.$optionid.'">'.$option.'<br /><br />';
 }
-echo'<br /><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp;Submit</button></form></div>';
+echo'<br /><button type="submit" class="btn btn-primary"></span>&nbsp;Submit</button></form></div>';
 //header("location:dash.php?q=4&step=2&eid=$id&n=$total");
 }
 //result display
@@ -169,7 +168,7 @@ if(@$_GET['q']== 'result' && @$_GET['eid'])
 $eid=@$_GET['eid'];
 $q=mysqli_query($con,"SELECT * FROM history WHERE eid='$eid' AND email='$email' " )or die('Error157');
 echo  '<div class="panel">
-<center><h1 class="title" style="color:#660033">Result</h1><center><br /><table class="table table-striped title1" style="font-size:20px;font-weight:1000;">';
+<center><h1 class="title">Result</h1><center><br /><table class="table table-striped title1" style="font-size:20px;font-weight:1000;">';
 
 while($row=mysqli_fetch_array($q) )
 {
@@ -177,16 +176,16 @@ $s=$row['score'];
 $w=$row['wrong'];
 $r=$row['sahi'];
 $qa=$row['level'];
-echo '<tr style="color:#66CCFF"><td>Total Questions</td><td>'.$qa.'</td></tr>
-      <tr style="color:#99cc32"><td>right Answer&nbsp;<span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></td><td>'.$r.'</td></tr> 
-	  <tr style="color:red"><td>Wrong Answer&nbsp;<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></td><td>'.$w.'</td></tr>
-	  <tr style="color:#66CCFF"><td>Score&nbsp;<span class="glyphicon glyphicon-star" aria-hidden="true"></span></td><td>'.$s.'</td></tr>';
+echo '<tr style="color:black"><td>Total Questions</td><td>'.$qa.'</td></tr>
+      <tr style="color:black"><td>Correct Answers&nbsp;<span aria-hidden="true"></span></td><td>'.$r.'</td></tr> 
+	  <tr style="color:black"><td>Wrong Answers&nbsp;<span aria-hidden="true"></span></td><td>'.$w.'</td></tr>
+	  <tr style="color:black"><td>Score&nbsp;<span aria-hidden="true"></span></td><td>'.$s.'</td></tr>';
 }
 $q=mysqli_query($con,"SELECT * FROM rank WHERE  email='$email' " )or die('Error157');
 while($row=mysqli_fetch_array($q) )
 {
 $s=$row['score'];
-echo '<tr style="color:#990000"><td>Overall Score&nbsp;<span class="glyphicon glyphicon-stats" aria-hidden="true"></span></td><td>'.$s.'</td></tr>';
+// echo '<tr style="color:balck"><td>Overall Score&nbsp;<span aria-hidden="true"></span></td><td>'.$s.'</td></tr>';
 }
 echo '</table></div>';
 
@@ -226,7 +225,7 @@ if(@$_GET['q']== 3)
 $q=mysqli_query($con,"SELECT * FROM rank  ORDER BY score DESC " )or die('Error223');
 echo  '<div class="panel title"><div class="table-responsive">
 <table class="table table-striped title1" >
-<tr style="color:black"><td><b>Rank</b></td><td><b>Name</b></td><td><b>Gender</b></td><td><b>Branch</b></td><td><b>Score</b></td></tr>';
+<tr style="color:black"><td><b>Rank</b></td><td><b>Name</b></td><td><b>Gender</b></td><td><b>College</b></td><td><b>Score</b></td></tr>';
 $c=0;
 while($row=mysqli_fetch_array($q) )
 {
@@ -237,7 +236,7 @@ while($row=mysqli_fetch_array($q12) )
 {
 $name=$row['name'];
 $gender=$row['gender'];
-$college=$row['college'];
+$college=$row['branch'];
 }
 $c++;
 echo '<tr><td style="color:#99cc32"><b>'.$c.'</b></td><td>'.$name.'</td><td>'.$gender.'</td><td>'.$college.'</td><td>'.$s.'</td><td>';
@@ -247,8 +246,8 @@ echo '</table></div></div>';}
 
 
 
-</div></div></div></div>
-<!-- Footer start-->
+<!-- </div></div></div></div> -->
+<!--Footer start-->
 <!-- <div class="row footer">
 <div class="col-md-3 box">
 <a href="http://www.projectworlds.in/online-examination" target="_blank">About us</a>
@@ -260,8 +259,8 @@ echo '</table></div></div>';}
 </div>
 <div class="col-md-3 box">
 <a href="feedback.php" target="_blank">Feedback</a></div></div>
-<--Modal For Developers-->
-<!-- <div class="modal fade title1" id="developers">
+Modal For Developers
+div class="modal fade title1" id="developers">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -280,12 +279,12 @@ echo '</table></div></div>';}
 		<h4 style="color:#202020; font-family:'typo' ;font-size:16px" class="title1">+91 9165063741</h4>
 		<h4 style="font-family:'typo' ">vermayugesh323@gmail.com</h4>
 		<h4 style="font-family:'typo' ">Chhattishgarh insitute of management & Technology ,bhilai</h4></div></div>
-		</p>
-      </div>
+		</p> -->
+      <!-- </div> -->
     
-    </div><--/.modal-content -->
+    <!-- </div>/.modal-content -->
   <!-- </div>/.modal-dialog -->
-<!-- </div>/.modal --> -->
+<!-- </div>/.modal -->
 
 <!--Modal for admin login-->
 	 <!-- <div class="modal fade" id="login">
@@ -295,8 +294,8 @@ echo '</table></div></div>';}
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title"><span style="color:orange;font-family:'typo' ">LOGIN</span></h4>
       </div>
-      <div class="modal-body title1"> -->
-<!-- <div class="row">
+      <div class="modal-body title1">
+<div class="row">
 <div class="col-md-3"></div>
 <div class="col-md-6">
 <form role="form" method="post" action="admin.php?q=index.php">
