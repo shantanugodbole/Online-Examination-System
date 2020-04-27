@@ -7,7 +7,7 @@ background:#eee;
 min-height:550px;
 background-attachment:fixed;
 }
-.bg
+/* .bg
 {
 min-height:540px;
 }
@@ -15,7 +15,7 @@ min-height:540px;
 {
 background:url(../image/bg.jpg);
 min-height:535px;
-}
+} */
 
 @font-face {
    font-family: 'typo';
