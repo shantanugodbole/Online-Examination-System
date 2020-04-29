@@ -10,6 +10,7 @@
  <link rel="stylesheet" href="css/main.css">
  <link  rel="stylesheet" href="css/font.css">
  <script src="js/jquery.js" type="text/javascript"></script>
+ <script src="test.js" type="text/javascript"></script>
 
  
   <script src="js/bootstrap.min.js"  type="text/javascript"></script>
@@ -71,12 +72,12 @@ echo '<span class="pull-right top title1" ><span class="log1"><span class="glyph
 		<li <?php if(@$_GET['q']==3) echo'class="active"'; ?>><a href="account.php?q=3"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;Ranking</a></li>
 		<!-- <li class="pull-right"> <a href="logout.php?q=account.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;Signout</a></li> -->
 		</ul>
-            <form class="navbar-form navbar-left" role="search">
+            <!-- <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Enter tag ">
         </div>
         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Search</button>
-      </form>
+      </form> -->
       </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav><!--navigation menu closed-->
@@ -95,7 +96,7 @@ while($row = mysqli_fetch_array($result)) {
 	$title = $row['title'];
 	$total = $row['total'];
 	$sahi = $row['sahi'];
-    $time = $row['time'];
+  $time = $row['time'];
 	$eid = $row['eid'];
 $q12=mysqli_query($con,"SELECT score FROM history WHERE eid='$eid' AND email='$email'" )or die('Error98');
 $rowcount=mysqli_num_rows($q12);	
@@ -111,27 +112,27 @@ echo '<tr style="color:#99cc32"><td>'.$c++.'</td><td>'.$title.'&nbsp;<span title
 }
 $c=0;
 echo '</table></div></div>';
-
-}?>
-<!--<span id="countdown" class="timer"></span>
+}
+?>
+<!-- <span id="countdown" class="timer"></span>
 <script>
-var seconds = 40;
+var seconds = 10;
     function secondPassed() {
     var minutes = Math.round((seconds - 30)/60);
     var remainingSeconds = seconds % 60;
     if (remainingSeconds < 10) {
         remainingSeconds = "0" + remainingSeconds; 
     }
-    document.getElementById('countdown').innerHTML = minutes + ":" +    remainingSeconds;
+    document.getElementById('countdown').innerHTML = "Remaining Time " + minutes + ":" +    remainingSeconds;
     if (seconds == 0) {
         clearInterval(countdownTimer);
-        document.getElementById('countdown').innerHTML = "Buzz Buzz";
+        document.getElementById('countdown').innerHTML = "TIme up! Submit Now!";
     } else {    
         seconds--;
     }
     }
 var countdownTimer = setInterval('secondPassed()', 1000);
-</script>-->
+</script> -->
 
 <!--home closed-->
 
@@ -160,7 +161,10 @@ $optionid=$row['optionid'];
 echo'<input type="radio" name="ans" value="'.$optionid.'">'.$option.'<br /><br />';
 }
 echo'<br /><button type="submit" class="btn btn-primary"></span>&nbsp;Submit</button></form></div>';
-//header("location:dash.php?q=4&step=2&eid=$id&n=$total");
+$id = $qid;
+$query = mysqli_query($con, "SELECT time FROM test WHERE qid='$id' ");
+$row = mysqli_fetch_array($query);
+echo '<script> secondPassed('.row[0].') </script> ';
 }
 //result display
 if(@$_GET['q']== 'result' && @$_GET['eid']) 
