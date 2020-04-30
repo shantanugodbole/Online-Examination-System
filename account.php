@@ -70,18 +70,11 @@ echo '<span class="pull-right top title1" ><span class="log1"><span class="glyph
         <li <?php if(@$_GET['q']==1) echo'class="active"'; ?> ><a href="account.php?q=1"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home<span class="sr-only">(current)</span></a></li>
         <li <?php if(@$_GET['q']==2) echo'class="active"'; ?>><a href="account.php?q=2"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;History</a></li>
 		<li <?php if(@$_GET['q']==3) echo'class="active"'; ?>><a href="account.php?q=3"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;Ranking</a></li>
-		<!-- <li class="pull-right"> <a href="logout.php?q=account.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;Signout</a></li> -->
 		</ul>
-            <!-- <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Enter tag ">
-        </div>
-        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Search</button>
-      </form> -->
-      </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav><!--navigation menu closed-->
-<div class="container"><!--container start-->
+      </div>
+  </div>
+</nav>
+<div class="container">
 <div class="row">
 <div class="col-md-12">
 
@@ -95,18 +88,18 @@ $c=1;
 while($row = mysqli_fetch_array($result)) {
 	$title = $row['title'];
 	$total = $row['total'];
-	$sahi = $row['sahi'];
+	$questions = $row['questions'];
   $time = $row['time'];
 	$eid = $row['eid'];
 $q12=mysqli_query($con,"SELECT score FROM history WHERE eid='$eid' AND email='$email'" )or die('Error98');
 $rowcount=mysqli_num_rows($q12);	
 if($rowcount == 0){
-	echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;min</td>
+	echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$questions*$total.'</td><td>'.$time.'&nbsp;min</td>
 	<td><b><a href="account.php?q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'" class="pull-right btn sub1" style="margin:0px;background:#99cc32"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Start</b></span></a></b></td></tr>';
 }
 else
 {
-echo '<tr style="color:#99cc32"><td>'.$c++.'</td><td>'.$title.'&nbsp;<span title="This quiz is already solve by you" class="glyphicon glyphicon-ok" aria-hidden="true"></span></td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;min</td>
+echo '<tr style="color:#99cc32"><td>'.$c++.'</td><td>'.$title.'&nbsp;<span title="This quiz is already solve by you" class="glyphicon glyphicon-ok" aria-hidden="true"></span></td><td>'.$total.'</td><td>'.$questions*$total.'</td><td>'.$time.'&nbsp;min</td>
 	<td><b><a href="update.php?q=quizre&step=25&eid='.$eid.'&n=1&t='.$total.'"</span>&nbsp;</a></b></td></tr>';
 }
 }
@@ -153,7 +146,6 @@ echo '<b>Question &nbsp;'.$sn.'&nbsp;::<br />'.$qns.'</b><br /><br />';
 $q=mysqli_query($con,"SELECT * FROM options WHERE qid='$qid' " );
 echo '<form action="update.php?q=quiz&step=2&eid='.$eid.'&n='.$sn.'&t='.$total.'&qid='.$qid.'" method="POST"  class="form-horizontal">
 <br />';
-
 while($row=mysqli_fetch_array($q) )
 {
 $option=$row['option'];
@@ -161,10 +153,11 @@ $optionid=$row['optionid'];
 echo'<input type="radio" name="ans" value="'.$optionid.'">'.$option.'<br /><br />';
 }
 echo'<br /><button type="submit" class="btn btn-primary"></span>&nbsp;Submit</button></form></div>';
-$id = $qid;
-$query = mysqli_query($con, "SELECT time FROM test WHERE qid='$id' ");
-$row = mysqli_fetch_array($query);
-echo '<script> secondPassed('.row[0].') </script> ';
+$query = mysqli_query($con, "SELECT * FROM test WHERE qid='$qid' ");
+if ($row = mysqli_fetch_array($query))
+{
+  echo '<script> secondPassed('.$row[5].') </script> ';
+}
 }
 //result display
 if(@$_GET['q']== 'result' && @$_GET['eid']) 
@@ -178,7 +171,7 @@ while($row=mysqli_fetch_array($q) )
 {
 $s=$row['score'];
 $w=$row['wrong'];
-$r=$row['sahi'];
+$r=$row['questions'];
 $qa=$row['level'];
 echo '<tr style="color:black"><td>Total Questions</td><td>'.$qa.'</td></tr>
       <tr style="color:black"><td>Correct Answers&nbsp;<span aria-hidden="true"></span></td><td>'.$r.'</td></tr> 
@@ -210,9 +203,9 @@ while($row=mysqli_fetch_array($q) )
 $eid=$row['eid'];
 $s=$row['score'];
 $w=$row['wrong'];
-$r=$row['sahi'];
+$r=$row['rightans'];
 $qa=$row['level'];
-$q23=mysqli_query($con,"SELECT title FROM quiz WHERE  eid='$eid' " )or die('Error208');
+$q23=mysqli_query($con,"SELECT title FROM quiz WHERE  eid='$eid'")or die('Error208');
 while($row=mysqli_fetch_array($q23) )
 {
 $title=$row['title'];
@@ -247,82 +240,9 @@ echo '<tr><td style="color:#99cc32"><b>'.$c.'</b></td><td>'.$name.'</td><td>'.$g
 }
 echo '</table></div></div>';}
 ?>
-
-
-
-<!-- </div></div></div></div> -->
-<!--Footer start-->
-<!-- <div class="row footer">
-<div class="col-md-3 box">
-<a href="http://www.projectworlds.in/online-examination" target="_blank">About us</a>
+    </div>
+  </div>
 </div>
-<div class="col-md-3 box">
-<a href="#" data-toggle="modal" data-target="#login">Admin Login</a></div>
-<div class="col-md-3 box">
-<a href="#" data-toggle="modal" data-target="#developers">Developers</a>
-</div>
-<div class="col-md-3 box">
-<a href="feedback.php" target="_blank">Feedback</a></div></div>
-Modal For Developers
-div class="modal fade title1" id="developers">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" style="font-family:'typo' "><span style="color:orange">Developers</span></h4>
-      </div>
-	  
-      <div class="modal-body">
-        <p>
-		<div class="row">
-		<div class="col-md-4">
-		 <img src="image/CAM00121.jpg" width=100 height=100 alt="Sunny Prakash Tiwari" class="img-rounded">
-		 </div>
-		 <div class="col-md-5">
-		<a href="http://yugeshverma.blogspot.in" style="color:#202020; font-family:'typo' ; font-size:18px" title="Find on Facebook">Yugesh Verma</a>
-		<h4 style="color:#202020; font-family:'typo' ;font-size:16px" class="title1">+91 9165063741</h4>
-		<h4 style="font-family:'typo' ">vermayugesh323@gmail.com</h4>
-		<h4 style="font-family:'typo' ">Chhattishgarh insitute of management & Technology ,bhilai</h4></div></div>
-		</p> -->
-      <!-- </div> -->
-    
-    <!-- </div>/.modal-content -->
-  <!-- </div>/.modal-dialog -->
-<!-- </div>/.modal -->
-
-<!--Modal for admin login-->
-	 <!-- <div class="modal fade" id="login">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title"><span style="color:orange;font-family:'typo' ">LOGIN</span></h4>
-      </div>
-      <div class="modal-body title1">
-<div class="row">
-<div class="col-md-3"></div>
-<div class="col-md-6">
-<form role="form" method="post" action="admin.php?q=index.php">
-<div class="form-group">
-<input type="text" name="uname" maxlength="20"  placeholder="Admin user id" class="form-control"/> 
-</div>
-<div class="form-group">
-<input type="password" name="password" maxlength="15" placeholder="Password" class="form-control"/>
-</div>
-<div class="form-group" align="center">
-<input type="submit" name="login" value="Login" class="btn btn-primary" />
-</div>
-</form>
-</div><div class="col-md-3"></div></div>
-      </div> -->
-      <!--<div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>-->
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!--footer end-->
-
 
 </body>
 </html>

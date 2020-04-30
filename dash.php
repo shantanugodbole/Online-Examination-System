@@ -14,21 +14,6 @@
   <script src="js/bootstrap.min.js"  type="text/javascript"></script>
  	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
 
-<!-- <script>
-$(function () {
-    $(document).on( 'scroll', function(){
-        console.log('scroll top : ' + $(window).scrollTop());
-        if($(window).scrollTop()>=$(".logo").height())
-        {
-             $(".navbar").addClass("navbar-fixed-top");
-        }
-
-        if($(window).scrollTop()<$(".logo").height())
-        {
-             $(".navbar").removeClass("navbar-fixed-top");
-        }
-    });
-});</script> -->
 </head>
 
 <body  style="background:#eee;">
@@ -80,10 +65,7 @@ echo '<span class="pull-right top title1" ><span class="log1"><span class="glyph
           <ul class="dropdown-menu">
             <li><a href="dash.php?q=4">Add Quiz</a></li>
             <li><a href="dash.php?q=5">Remove Quiz</a></li>
-			
           </ul>
-        <!-- </li><li class="pull-right"> <a href="logout.php?q=account.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;Signout</a></li> -->
-		
       </ul>
           </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

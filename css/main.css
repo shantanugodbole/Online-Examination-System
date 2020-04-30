@@ -41,14 +41,14 @@ font-family:'typo';
 
 .header
 {
-background:#202020;
+background-color:#00539CFF;
 height:70px;
 }
 .logo
 {
 font-family:'typo';
 font-size:35px;
-color:#ffbb33;
+color:#FFD662FF;
 margin:15px;
 }
 
@@ -94,7 +94,7 @@ font-size:15px;
 text-align:center;
 border-top:1px solid;
 border-color:#323232;
-background-color:#202020;
+background-color:#00539CFF;
 }
 .footer a
 {
