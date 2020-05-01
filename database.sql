@@ -278,6 +278,6 @@ CREATE TABLE `about_us` (
 INSERT INTO `about_us` (`serial_number`, `name`, `roll_number`, `email_id`) VALUES
 ('1', 'Jugal Chauhan', '1811071', 'jugal.dc@somaiya.edu'),
 ('2', 'Anjali Gohil', '1811080', 'anjali.gohil@somaiya.edu'),
-('3', 'Jugal Chauhan', '1811079', 'shantanu.godbole@somaiya.edu');
+('3', 'Shantanu Godbole', '1811079', 'shantanu.godbole@somaiya.edu');
 
 -- --------------------------------------------------------
