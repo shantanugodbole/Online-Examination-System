@@ -127,11 +127,6 @@ $optionid=$row['optionid'];
 echo'<input type="radio" name="ans" value="'.$optionid.'">'.$option.'<br /><br />';
 }
 echo'<br /><button type="submit" class="btn btn-primary"></span>&nbsp;Submit</button></form></div>';
-$query = mysqli_query($con, "SELECT * FROM test WHERE qid='$qid' ");
-if ($row = mysqli_fetch_array($query))
-{
-  echo '<script> secondPassed('.$row[5].') </script> ';
-}
 }
 //result display
 if(@$_GET['q']== 'result' && @$_GET['eid']) 
@@ -145,7 +140,7 @@ while($row=mysqli_fetch_array($q) )
 {
 $s=$row['score'];
 $w=$row['wrong'];
-$r=$row['questions'];
+$r=$row['rightans'];
 $qa=$row['level'];
 echo '<tr style="color:black"><td>Total Questions</td><td>'.$qa.'</td></tr>
       <tr style="color:black"><td>Correct Answers&nbsp;<span aria-hidden="true"></span></td><td>'.$r.'</td></tr> 

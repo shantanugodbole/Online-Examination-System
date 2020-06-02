@@ -125,7 +125,7 @@ if($ans == $ansid)
 $q=mysqli_query($con,"SELECT * FROM quiz WHERE eid='$eid' " );
 while($row=mysqli_fetch_array($q) )
 {
-$sahi=$row['sahi'];
+$sahi=$row['questions'];
 }
 if($sn == 1)
 {
@@ -136,11 +136,11 @@ $q=mysqli_query($con,"SELECT * FROM history WHERE eid='$eid' AND email='$email' 
 while($row=mysqli_fetch_array($q) )
 {
 $s=$row['score'];
-$r=$row['sahi'];
+$r=$row['rightans'];
 }
 $r++;
 $s=$s+$sahi;
-$q=mysqli_query($con,"UPDATE `history` SET `score`=$s,`level`=$sn,`sahi`=$r, date= NOW()  WHERE  email = '$email' AND eid = '$eid'")or die('Error124');
+$q=mysqli_query($con,"UPDATE `history` SET `score`=$s,`level`=$sn,`rightans`=$r, date= NOW()  WHERE  email = '$email' AND eid = '$eid'")or die('Error124');
 
 } 
 else

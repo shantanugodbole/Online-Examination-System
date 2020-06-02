@@ -85,7 +85,7 @@ $c=1;
 while($row = mysqli_fetch_array($result)) {
 	$title = $row['title'];
 	$total = $row['total'];
-	$sahi = $row['sahi'];
+	$sahi = $row['questions'];
   $time = $row['time'];
 	$eid = $row['eid'];
 $q12=mysqli_query($con,"SELECT score FROM history WHERE eid='$eid' AND email='$email'" )or die('Error98');
@@ -326,7 +326,7 @@ $c=1;
 while($row = mysqli_fetch_array($result)) {
 	$title = $row['title'];
 	$total = $row['total'];
-	$sahi = $row['sahi'];
+	$sahi = $row['questions'];
     $time = $row['time'];
 	$eid = $row['eid'];
 	echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;min</td>
