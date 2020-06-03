@@ -147,7 +147,7 @@ while($row = mysqli_fetch_array($result)) {
 	$college = $row['branch'];
 
 	echo '<tr><td>'.$c++.'</td><td>'.$name.'</td><td>'.$gender.'</td><td>'.$college.'</td><td>'.$email.'</td><td>'.$mob.'</td>
-	<td><a title="Delete User" href="update.php?demail='.$email.'"><b><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></b></a></td></tr>';
+	<td><a title="Delete User" href="update.php?demail='.$email.'"></a></td></tr>';
 }
 $c=0;
 echo '</table></div></div>';
