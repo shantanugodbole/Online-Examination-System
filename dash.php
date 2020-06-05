@@ -20,7 +20,7 @@
 <div class="header">
 <div class="row">
 <div class="col-lg-6">
-<span class="logo"> Overview </span></div>
+<span class="logo"> Dashboard </span></div>
 <?php
  include_once 'dbConnection.php';
 session_start();
@@ -34,7 +34,7 @@ else
 $name = $_SESSION['name'];;
 
 include_once 'dbConnection.php';
-echo '<span class="pull-right top title1" ><span class="log1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;Hello,</span> <a href="http://localhost/mip/dash.php?q=0" class="log log1">'.$name.'</a>&nbsp;|&nbsp;<a href="logout.php?q=account.php" class="log"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Signout</button></a></span>';
+echo '<span class="pull-right top title1" ><span class="log1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;Hello,</span> <a href="http://localhost/Online-Examination-System/Online-Examination-System/dash.php?q=0" class="log log1">'.$name.'</a>&nbsp;|&nbsp;<a href="logout.php?q=account.php" class="log"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Signout</button></a></span>';
 }?>
 
 </div></div>
@@ -42,21 +42,8 @@ echo '<span class="pull-right top title1" ><span class="log1"><span class="glyph
 
 <!--navigation menu-->
 <nav class="navbar navbar-default title1">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="aboutus.php"><b>About Us</b></a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li <?php if(@$_GET['q']==0) echo'class="active"'; ?>><a href="dash.php?q=0">Live Quizzes<span class="sr-only">(current)</span></a></li>
+        <li <?php if(@$_GET['q']==0) echo'class="active"'; ?>><a href="dash.php?q=0">Quizzes<span class="sr-only">(current)</span></a></li>
         <li <?php if(@$_GET['q']==1) echo'class="active"'; ?>><a href="dash.php?q=1">Users</a></li>
 		<li <?php if(@$_GET['q']==2) echo'class="active"'; ?>><a href="dash.php?q=2">Rankings</a></li>
 		<!-- <li <?php if(@$_GET['q']==3) echo'class="active"'; ?>><a href="dash.php?q=3">Feedback</a></li> -->
@@ -80,7 +67,7 @@ echo '<span class="pull-right top title1" ><span class="log1"><span class="glyph
 
 $result = mysqli_query($con,"SELECT * FROM quiz ORDER BY date DESC") or die('Error');
 echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
-<tr><td><b>S.N.</b></td><td><b>Topic</b></td><td><b>Total question</b></td><td><b>Marks</b></td><td><b>Time limit</b></td><td></td></tr>';
+<tr><td><b>S.N.</b></td><td><b>Topic</b></td><td><b>Total question</b></td><td><b>Total Marks</b></td><td><b>Time limit</b></td><td></td></tr>';
 $c=1;
 while($row = mysqli_fetch_array($result)) {
 	$title = $row['title'];

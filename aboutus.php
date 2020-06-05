@@ -84,7 +84,7 @@ html {
 <div class="about-section">
   <h1>About Us</h1>
   <p>SY Computers : Batch B1 of 2018-22</p>
-  <p>This Online Examination System is our final project of the course MiniProjet</p>
+  <p>This Online Examination System is our final project of the course MiniProject</p>
   <p>Our mentor was Manish Potey Sir</p>
 </div>
 

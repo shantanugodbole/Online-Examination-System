@@ -29,7 +29,7 @@ include_once 'dbConnection.php';
 <div class="header">
 <div class="row">
 <div class="col-lg-6">
-<span class="logo">Overview</span></div>
+<span class="logo">Dashboard</span></div>
 <div class="col-md-4 col-md-offset-2">
  <?php
  include_once 'dbConnection.php';
@@ -44,7 +44,7 @@ $name = $_SESSION['name'];
 $email=$_SESSION['email'];
 
 include_once 'dbConnection.php';
-echo '<span class="pull-right top title1" ><span class="log1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;Hello,</span> <a href="http://localhost/mip/account.php?q=1" class="log log1">'.$name.'</a>&nbsp;|&nbsp;<a href="logout.php?q=account.php" class="log"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Signout</button></a></span>';
+echo '<span class="pull-right top title1" ><span class="log1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;Hello,</span> <a href="http://localhost/Online-Examination-System/Online-Examination-System/account.php?q=1" class="log log1">'.$name.'</a>&nbsp;|&nbsp;<a href="logout.php?q=account.php" class="log"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Signout</button></a></span>';
 }?>
 </div>
 </div></div>
