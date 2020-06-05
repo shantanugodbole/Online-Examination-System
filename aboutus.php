@@ -92,7 +92,7 @@ html {
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="aboutus_jc.png" alt="Jugal" height="250" width="250" class="aboutuscenter">
+      <img src="image/aboutus_jc.png" alt="Jugal" height="250" width="250" class="aboutuscenter">
       <div class="container">
         <h2 style="text-align:center">Jugal Chauhan</h2>
         <p style="text-align:center" class="title">Collaborator</p>
@@ -110,7 +110,7 @@ html {
 
   <div class="column">
     <div class="card">
-      <img src="aboutus_sg.png" alt="Shantanu" height="250" width="250" class="aboutuscenter">
+      <img src="image/aboutus_sg.png" alt="Shantanu" height="250" width="250" class="aboutuscenter">
       <div class="container">
         <h2 style="text-align:center">Shantanu Godbole</h2>
         <p style="text-align:center" class="title">Collaborator</p>
@@ -128,7 +128,7 @@ html {
   
   <div class="column">
     <div class="card">
-      <img src="aboutus_ag.png" alt="Anjali" height="250" width="250" class="aboutuscenter">
+      <img src="image/aboutus_ag.png" alt="Anjali" height="250" width="250" class="aboutuscenter">
       <div class="container">
         <h2 style="text-align:center">Anjali Gohil</h2>
         <p style="text-align:center" class="title">Collaborator</p>

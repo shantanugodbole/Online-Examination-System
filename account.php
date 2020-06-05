@@ -13,7 +13,7 @@
  <script src="test.js" type="text/javascript"></script>
 
  
-  <script src="js/bootstrap.min.js"  type="text/javascript"></script>
+<script src="js/bootstrap.min.js"  type="text/javascript"></script>
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
  <!--alert message-->
 <?php if(@$_GET['w'])
